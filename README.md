@@ -525,6 +525,23 @@ test_main.py::test_gate_resume_reject                                           
 
 ---
 
+## 🚀 Deployment (Vercel & Supabase)
+
+CyberIntel Nexus is designed to be deployed to **Vercel** serverless functions with a **Supabase** PostgreSQL database.
+
+### Environment Variables
+
+When deploying to Vercel, ensure the following environment variables are set in your project dashboard:
+
+| Variable | Description |
+|---|---|
+| `DATABASE_URL` | Your Supabase Postgres connection string. **CRITICAL:** Because Vercel functions are serverless, you must use the Supabase **Transaction Pooler** connection string (port `6543` with `?pgbouncer=true`). |
+| `JWT_SECRET_KEY` | A secure random string used to sign JWT authentication tokens. |
+| `AUTHORIZED_REVIEWERS` | Comma-separated list of Google email addresses authorized to review and approve/reject staging artifacts. Use `*` to allow any Google-authenticated user. |
+| `INIT_DB` | Set to `true` on your very first deployment to automatically run `CREATE TABLE` and initialize the Supabase schema. **Remove this after the first run** to optimize cold start performance. |
+
+---
+
 ## 📁 Project Structure
 
 ```
