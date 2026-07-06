@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-cyber-bg text-cyber-text font-sans antialiased;
+    background-image:
+      linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-cyber-surface;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-cyber-border rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-cyber-blue;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-cyber-card/80 backdrop-blur-sm border border-cyber-border rounded-xl;
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.3), 0 0 30px rgba(59, 130, 246, 0.1);
+  }
+
+  .glow-green {
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.3), 0 0 30px rgba(16, 185, 129, 0.1);
+  }
+
+  .glow-red {
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.3), 0 0 30px rgba(239, 68, 68, 0.1);
+  }
+
+  .glow-amber {
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.3), 0 0 30px rgba(245, 158, 11, 0.1);
+  }
+
+  .btn-primary {
+    @apply px-5 py-2.5 bg-cyber-blue hover:bg-blue-500 text-white font-semibold rounded-lg
+           transition-all duration-200 hover:shadow-lg hover:shadow-blue-500/25
+           active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed disabled:active:scale-100;
+  }
+
+  .btn-approve {
+    @apply px-6 py-2.5 bg-cyber-green hover:bg-emerald-400 text-white font-semibold rounded-lg
+           transition-all duration-200 hover:shadow-lg hover:shadow-emerald-500/30
+           active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .btn-reject {
+    @apply px-6 py-2.5 bg-cyber-red hover:bg-red-400 text-white font-semibold rounded-lg
+           transition-all duration-200 hover:shadow-lg hover:shadow-red-500/30
+           active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .status-badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wide;
+  }
+
+  .code-block {
+    @apply font-mono text-xs bg-cyber-bg rounded-lg p-4 border border-cyber-border
+           overflow-auto max-h-64 text-cyber-cyan whitespace-pre-wrap;
+  }
+
+  .input-field {
+    @apply w-full bg-cyber-bg border border-cyber-border rounded-lg px-4 py-3
+           text-cyber-text placeholder-cyber-muted font-mono text-sm
+           focus:outline-none focus:border-cyber-blue focus:ring-1 focus:ring-cyber-blue
+           transition-colors duration-200 resize-none;
+  }
+
+  .stat-value {
+    @apply text-3xl font-bold font-mono tabular-nums;
+  }
+}
