@@ -20,7 +20,8 @@ from jose import jwt, JWTError
 
 try:
     from cyberintel_nexus.db import init_db, SessionLocal, User as DBUser, Session as DBSession, RuleArtifact as DBRuleArtifact
-    init_db()
+    if os.environ.get("INIT_DB") == "true":
+        init_db()
 except ImportError:
     SessionLocal = None
 
